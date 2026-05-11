@@ -1,0 +1,379 @@
+=== COMMAND: /system identity print ===
+name: RB-CCR1009-INICIAL
+
+=== COMMAND: /system resource print ===
+uptime: 16m39s             
+                  version: 7.22.3 (stable)    
+               build-time: 2026-05-07 09:19:52
+         factory-software: 6.46.4             
+              free-memory: 194.5MiB           
+             total-memory: 256.0MiB           
+                      cpu: MIPS 1004Kc V2.15  
+                cpu-count: 4                  
+            cpu-frequency: 880MHz             
+                 cpu-load: 0%                 
+           free-hdd-space: 3668.0KiB          
+          total-hdd-space: 16.0MiB            
+  write-sect-since-reboot: 176                
+         write-sect-total: 22412              
+        architecture-name: mmips              
+               board-name: hEX S              
+                 platform: MikroTik
+
+=== COMMAND: /system routerboard print ===
+routerboard: yes         
+        board-name: hEX S       
+             model: RB760iGS    
+     serial-number: E1F10E261061
+     firmware-type: mt7621L     
+  factory-firmware: 6.46.4      
+  current-firmware: 6.49.6      
+  upgrade-firmware: 7.22.3
+
+=== COMMAND: /system package print ===
+Columns: NAME, VERSION, BUILD-TIME, SIZE
+# NAME      VERSION  BUILD-TIME           SIZE     
+0 wireless  7.22.3   2026-05-07 09:19:52  1392.1KiB
+1 routeros  7.22.3   2026-05-07 09:19:52  10.2MiB
+
+=== COMMAND: /system clock print ===
+time: 21:21:24         
+                  date: 2026-05-10       
+  time-zone-autodetect: yes              
+        time-zone-name: America/Fortaleza
+            gmt-offset: -03:00           
+            dst-active: no
+
+=== COMMAND: /ip service print detail ===
+Flags: D - DYNAMIC; X - DISABLED, I - INVALID; c - CONNECTION 
+ 0  X  name="ftp" port=21 proto=tcp address="" vrf=main max-sessions=20 
+
+ 1     name="ssh" port=22 proto=tcp address=192.168.88.200/32 vrf=main 
+       max-sessions=20 
+
+ 2 D c name="ssh" port=22 proto=tcp local=192.168.88.1 
+       remote=192.168.88.200:61069 
+
+ 3  X  name="telnet" port=23 proto=tcp address="" vrf=main max-sessions=20 
+
+ 4 D   name="resolver" port=53 proto=tcp 
+
+ 5 D   name="resolver" port=53 proto=udp 
+
+ 6 D   name="dhcp" port=67 proto=udp 
+
+ 7 D   name="dhcpclient" port=68 proto=udp 
+
+ 8  X  name="www" port=80 proto=tcp address="" vrf=main max-sessions=20 
+
+ 9     name="reverse-proxy" port=443 proto=tcp address="" certificate=********
+       tls-version=any vrf=main max-sessions=20 
+
+10  X  name="www-ssl" port=443 proto=tcp address="" certificate=********
+       tls-version=any vrf=main max-sessions=20 
+
+11 D   name="btest" port=2000 proto=tcp 
+
+12 D   name="route_BFD" port=3784 proto=udp 
+
+13 D   name="route_BFD" port=4784 proto=udp 
+
+14 D   name="discover" port=5678 proto=udp 
+
+15     name="winbox" port=8291 proto=tcp address=192.168.88.0/24 vrf=main 
+       max-sessions=20 
+
+16 D c name="winbox" port=8291 proto=tcp local=192.168.88.1 
+       remote=192.168.88.200:58087 
+
+17  X  name="api" port=8728 proto=tcp address="" vrf=main max-sessions=20 
+
+18  X  name="api-ssl" port=8729 proto=tcp address="" certificate=********
+       tls-version=any vrf=main max-sessions=20
+
+=== COMMAND: /ip address print detail ===
+Flags: X - DISABLED, I - INVALID; D - DYNAMIC; S - SLAVE 
+ 0     ;;; LAN Gateway
+       address=192.168.88.1/24 network=192.168.88.0 interface=bridge-lan 
+       actual-interface=bridge-lan vrf=main 
+
+ 1  D  address=192.168.1.215/24 network=192.168.1.0 interface=ether1 
+       actual-interface=ether1 vrf=main
+
+=== COMMAND: /ip route print detail ===
+Flags: D - DYNAMIC; X - DISABLED, I - INACTIVE, A - ACTIVE; 
+c - CONNECT, s - STATIC, r - RIP, b - BGP, o - OSPF, i - IS-IS, d - DHCP, v - VPN, m - MODEM, y - BGP-MPLS-VPN;
+H - HW-OFFLOADED; + - ECMP 
+   DAd   dst-address=0.0.0.0/0 routing-table=main gateway=192.168.1.1 
+         immediate-gw=192.168.1.1%ether1 distance=1 scope=30 target-scope=10 
+         vrf-interface=ether1 
+
+   DAc   dst-address=192.168.1.0/24 routing-table=main gateway=ether1 
+         immediate-gw=ether1 distance=0 scope=10 target-scope=5 
+         local-address=192.168.1.215%ether1 
+
+   DAc   dst-address=192.168.88.0/24 routing-table=main gateway=bridge-lan 
+         immediate-gw=bridge-lan distance=0 scope=10 target-scope=5 
+         local-address=192.168.88.1%bridge-lan
+
+=== COMMAND: /ip dns print detail ===
+expected end of command (line 1 column 15)
+
+=== COMMAND: /ip firewall filter print detail ===
+Flags: X - DISABLED, I - INVALID; D - DYNAMIC
+
+=== COMMAND: /ip firewall nat print detail ===
+Flags: X - DISABLED, I - INVALID; D - DYNAMIC 
+ 0    ;;; NAT LAN via ether1 WAN DHCP
+      chain=srcnat action=masquerade out-interface=ether1
+
+=== COMMAND: /ip firewall mangle print detail ===
+Flags: X - DISABLED, I - INVALID; D - DYNAMIC
+
+=== COMMAND: /ip firewall raw print detail ===
+Flags: X - DISABLED, I - INVALID; D - DYNAMIC
+
+=== COMMAND: /ip firewall address-list print detail ===
+Flags: X - DISABLED, D - DYNAMIC
+
+=== COMMAND: /interface print detail ===
+Flags: D - DYNAMIC; X - DISABLED; I - INACTIVE, R - RUNNING; S - SLAVE; 
+P - PASSTHROUGH 
+ 0   R   name="ether1" default-name="ether1" type="ether" mtu=1500 
+         actual-mtu=1500 l2mtu=1596 max-l2mtu=2026 vrf=main 
+         mac-address=2C:C8:1B:52:99:BE last-link-up-time=2026-05-10 21:06:01 
+         link-downs=0 
+
+ 1   RS  name="ether2" default-name="ether2" type="ether" mtu=1500 
+         actual-mtu=1500 l2mtu=1596 max-l2mtu=2026 vrf=main 
+         mac-address=2C:C8:1B:52:99:BF last-link-up-time=2026-05-10 21:05:13 
+         link-downs=0 
+
+ 2    S  name="ether3" default-name="ether3" type="ether" mtu=1500 
+         actual-mtu=1500 l2mtu=1596 max-l2mtu=2026 vrf=main 
+         mac-address=2C:C8:1B:52:99:C0 link-downs=0 
+
+ 3    S  name="ether4" default-name="ether4" type="ether" mtu=1500 
+         actual-mtu=1500 l2mtu=1596 max-l2mtu=2026 vrf=main 
+         mac-address=2C:C8:1B:52:99:C1 link-downs=0 
+
+ 4    S  name="ether5" default-name="ether5" type="ether" mtu=1500 
+         actual-mtu=1500 l2mtu=1596 max-l2mtu=2026 vrf=main 
+         mac-address=2C:C8:1B:52:99:C2 link-downs=0 
+
+ 5       name="sfp1" default-name="sfp1" type="ether" mtu=1500 actual-mtu=1500 
+         l2mtu=1596 max-l2mtu=2026 vrf=main mac-address=2C:C8:1B:52:99:C3 
+         link-downs=0 
+
+ 6   R   ;;; LAN
+         name="bridge-lan" type="bridge" mtu=auto actual-mtu=1500 l2mtu=1596 
+         vrf=main mac-address=2C:C8:1B:52:99:BF 
+         last-link-up-time=2026-05-10 21:05:00 link-downs=0 
+
+ 7   R   name="lo" type="loopback" mtu=65536 actual-mtu=65536 vrf=main 
+         mac-address=00:00:00:00:00:00 last-link-up-time=2026-05-10 21:05:00 
+         link-downs=0
+
+=== COMMAND: /interface bridge print detail ===
+Flags: Y - MANAGED; D - DYNAMIC; X - DISABLED, R - RUNNING 
+ 0   R ;;; LAN
+       name="bridge-lan" mtu=auto actual-mtu=1500 l2mtu=1596 arp=enabled 
+       arp-timeout=auto mac-address=2C:C8:1B:52:99:BF protocol-mode=rstp 
+       fast-forward=yes igmp-snooping=no auto-mac=yes ageing-time=5m 
+       priority=0x8000 max-message-age=20s forward-delay=15s 
+       transmit-hold-count=6 vlan-filtering=no dhcp-snooping=no ra-guard=no 
+       port-cost-mode=short max-learned-entries=auto mlag-peer-port=none 
+       mlag-priority=128 mlag-heartbeat=5s
+
+=== COMMAND: /interface vlan print detail ===
+Flags: X - DISABLED, R - RUNNING; H - HW-OFFLOADED
+
+=== COMMAND: /interface pppoe-client print detail ===
+Flags: X - DISABLED, I - INVALID; R - RUNNING
+
+=== COMMAND: /ppp profile print detail ===
+Flags: * - DEFAULT 
+ 0 * name="default" bridge-learning=default use-ipv6=yes use-mpls=default 
+     use-compression=default use-encryption=default only-one=default 
+     change-tcp-mss=yes use-upnp=default address-list="" on-up="" on-down="" 
+
+ 1 * name="default-encryption" bridge-learning=default use-ipv6=yes 
+     use-mpls=default use-compression=default use-encryption=yes 
+     only-one=default change-tcp-mss=yes use-upnp=default address-list="" 
+     on-up="" on-down=""
+
+=== COMMAND: /ppp secret print detail ===
+Flags: X - DISABLED
+
+=== COMMAND: /ppp active print detail ===
+Flags: R - RADIUS
+
+=== COMMAND: /interface l2tp-server server print detail ===
+expected end of command (line 1 column 37)
+
+=== COMMAND: /interface ovpn-server server print detail ===
+Flags: I - INACTIVE; X - DISABLED 
+ 0  X name="ovpn-server1" port=1194 mode=ip protocol=tcp netmask=24 
+      mac-address=FE:BE:58:C5:E5:96 max-mtu=1500 keepalive-timeout=60 
+      default-profile=default certificate=******** require-client-certificate=********
+      tls-version=any auth=sha1,md5 cipher=blowfish128,aes128-cbc 
+      reneg-sec=3600 redirect-gateway=disabled push-routes="" 
+      push-routes-ipv6="" enable-tun-ipv6=no tun-server-ipv6=:: 
+      ipv6-prefix-len=64 vrf=main user-auth-method=pap
+
+=== COMMAND: /interface sstp-server server print detail ===
+expected end of command (line 1 column 37)
+
+=== COMMAND: /ip ipsec profile print detail ===
+Flags: * - DEFAULT 
+ 0 * name="default" hash-algorithm=sha1 enc-algorithm=aes-128,3des 
+     dh-group=modp2048,modp1024 lifetime=1d proposal-check=obey 
+     nat-traversal=yes ppk=no dpd-interval=2m dpd-maximum-failures=5
+
+=== COMMAND: /ip ipsec peer print detail ===
+Flags: X - DISABLED; D - DYNAMIC; R - RESPONDER
+
+=== COMMAND: /ip ipsec identity print detail ===
+Flags: D - DYNAMIC; X - DISABLED
+
+=== COMMAND: /ip ipsec proposal print detail ===
+Flags: X - DISABLED; * - DEFAULT 
+ 0  * name="default" auth-algorithms=sha1 
+      enc-algorithms=aes-256-cbc,aes-192-cbc,aes-128-cbc lifetime=30m 
+      pfs-group=modp1024
+
+=== COMMAND: /ip ipsec policy print detail ===
+Flags: T - TEMPLATE; B - BACKUP; 
+X - DISABLED, D - DYNAMIC, I - INVALID, A - ACTIVE; * - DEFAULT 
+ 0 T  * group=default src-address=::/0 dst-address=::/0 protocol=all 
+        proposal=default template=yes
+
+=== COMMAND: /ip ipsec active-peers print detail ===
+Flags: R - RESPONDER; N - NATT-PEER; P - PPK
+
+=== COMMAND: /ip ipsec installed-sa print detail ===
+Flags: S - SEEN-TRAFFIC; H - HW-AEAD; A - AH, E - ESP
+
+=== COMMAND: /log print where topics~"ipsec" ===
+
+
+=== COMMAND: /log print where topics~"l2tp" ===
+
+
+=== COMMAND: /log print where topics~"error" ===
+2026-05-10 21:03:28 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:03:38 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:03:49 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:03:59 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:04:10 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:04:20 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:06:18 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:06:29 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:06:39 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:06:49 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:07:00 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:07:10 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:07:20 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:07:31 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:07:41 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:07:51 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:08:02 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:08:12 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:08:23 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:08:33 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:08:43 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:08:54 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:09:04 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:09:14 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:09:25 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:09:35 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:09:45 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:09:56 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:10:06 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:10:16 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:10:27 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:10:37 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:10:48 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:10:58 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:11:08 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:11:19 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:11:29 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:11:39 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:11:50 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:12:00 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:12:10 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:12:21 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:12:31 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:12:41 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:12:52 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:13:02 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:13:12 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:13:23 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:13:33 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:13:44 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:13:54 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:14:04 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:14:15 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:14:25 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:14:35 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:14:46 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:14:56 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:15:07 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:15:17 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:15:27 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:15:37 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:15:48 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:15:58 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:16:09 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:16:19 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:16:29 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:16:40 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:16:50 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:17:00 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:17:11 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:17:21 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:17:35 system,error,critical login failure for user admin from 0C:CC:47:EF:D7:5B via winbox
+ 2026-05-10 21:21:24 script,error executing script from sshd failed, please check it manually
+ 2026-05-10 21:21:24 script,error,debug (ssh-cmd:ia-automation@192.168.88.200) expected end of command (line 1 column 15)
+ 2026-05-10 21:21:25 script,error executing script from sshd failed, please check it manually
+ 2026-05-10 21:21:25 script,error,debug (ssh-cmd:ia-automation@192.168.88.200) expected end of command (line 1 column 37)
+ 2026-05-10 21:21:25 script,error executing script from sshd failed, please check it manually
+ 2026-05-10 21:21:25 script,error,debug (ssh-cmd:ia-automation@192.168.88.200) expected end of command (line 1 column 37)
+
+=== COMMAND: /export terse ===
+# 2026-05-10 21:21:26 by RouterOS 7.22.3
+# software id = F1R6-L39T
+#
+# model = RB760iGS
+# serial number = E1F10E261061
+/interface bridge add comment=LAN name=bridge-lan port-cost-mode=short
+/interface lte apn set [ find default=yes ] ip-type=ipv4 use-network-apn=no
+/interface wireless security-profiles set [ find default=yes ] supplicant-identity=********
+/ip pool add name=pool-lan ranges=192.168.88.100-192.168.88.200
+/ip dhcp-server add address-pool=pool-lan interface=bridge-lan lease-time=10m name=dhcp-lan
+/user group add name=ia-readonly policy=ssh,read,!local,!telnet,!ftp,!reboot,!write,!policy,!test,!winbox,!password,!web,!sniff,!sensitive,!api,!romon,!rest-api
+/interface bridge port add bridge=bridge-lan ingress-filtering=no interface=ether2 internal-path-cost=10 path-cost=10
+/interface bridge port add bridge=bridge-lan ingress-filtering=no interface=ether3 internal-path-cost=10 path-cost=10
+/interface bridge port add bridge=bridge-lan ingress-filtering=no interface=ether4 internal-path-cost=10 path-cost=10
+/interface bridge port add bridge=bridge-lan ingress-filtering=no interface=ether5 internal-path-cost=10 path-cost=10
+/ip firewall connection tracking set udp-timeout=10s
+/ipv6 settings set max-neighbor-entries=8192
+/interface ovpn-server server add auth=sha1,md5 mac-address=FE:BE:58:C5:E5:96 name=ovpn-server1
+/ip address add address=192.168.88.1/24 comment="LAN Gateway" interface=bridge-lan network=192.168.88.0
+/ip dhcp-client add comment="WAN DHCP via roteador do provedor" interface=ether1 name=ether1 use-peer-dns=no
+/ip dhcp-server lease add address=192.168.88.200 client-id=1:c:cc:47:ef:d7:5b comment="PC Jefferson - automacao" mac-address=0C:CC:47:EF:D7:5B server=dhcp-lan
+/ip dhcp-server network add address=192.168.88.0/24 dns-server=192.168.88.1,1.1.1.1 gateway=192.168.88.1
+/ip dns set allow-remote-requests=yes servers=1.1.1.1,8.8.8.8
+/ip firewall nat add action=masquerade chain=srcnat comment="NAT LAN via ether1 WAN DHCP" out-interface=ether1
+/ip ipsec profile set [ find default=yes ] dpd-interval=2m dpd-maximum-failures=5
+/ip service set ftp disabled=yes
+/ip service set ssh address=192.168.88.200/32
+/ip service set telnet disabled=yes
+/ip service set www disabled=yes
+/ip service set winbox address=192.168.88.0/24
+/ip service set api disabled=yes
+/ip service set api-ssl disabled=yes
+/ipv6 nd set [ find default=yes ] advertise-dns=yes
+/routing bfd configuration add disabled=no interfaces=all min-rx=200ms min-tx=200ms multiplier=5
+/system clock set time-zone-name=America/Fortaleza
+/system identity set name=RB-CCR1009-INICIAL

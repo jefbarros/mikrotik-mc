@@ -1,0 +1,106 @@
+project:
+  name: "mikrotik-ai-automation"
+  site_name: "RB Resetada"
+  device_model: "MikroTik"
+  routeros_target: "7.x"
+
+management:
+  router_identity: "RB-RESETADA"
+  timezone: "America/Fortaleza"
+  admin_user_to_disable: "admin"
+  automation_user: "ia-automation"
+  automation_group: "ia-readonly"
+  automation_password_env: "MIKROTIK_AUTOMATION_PASSWORD"
+  management_subnet: "192.168.88.0/24"
+  management_pc_ip: "192.168.88.10"
+  allow_winbox_from:
+    - "192.168.88.0/24"
+  allow_ssh_from:
+    - "192.168.88.10/32"
+
+interfaces:
+  wan:
+    name: "ether1"
+    comment: "WAN"
+    type: "dhcp"
+    pppoe:
+      enabled: false
+      user_env: "MIKROTIK_PPPOE_USER"
+      password_env: "MIKROTIK_PPPOE_PASSWORD"
+      service_name: ""
+  lan_bridge:
+    name: "bridge-lan"
+    comment: "LAN"
+    ports:
+      - "ether2"
+      - "ether3"
+      - "ether4"
+      - "ether5"
+    address: "192.168.88.1/24"
+
+dhcp_server:
+  enabled: true
+  pool_name: "pool-lan"
+  range_start: "192.168.88.100"
+  range_end: "192.168.88.200"
+  gateway: "192.168.88.1"
+  dns_servers:
+    - "192.168.88.1"
+    - "1.1.1.1"
+
+dns:
+  allow_remote_requests: true
+  servers:
+    - "1.1.1.1"
+    - "8.8.8.8"
+
+services:
+  winbox:
+    enabled: true
+    port: 8291
+  ssh:
+    enabled: true
+    port: 22
+  www:
+    enabled: false
+  www_ssl:
+    enabled: false
+  api:
+    enabled: false
+  api_ssl:
+    enabled: false
+  ftp:
+    enabled: false
+  telnet:
+    enabled: false
+
+firewall:
+  enabled: true
+  allow_established_related: true
+  drop_invalid: true
+  allow_icmp_from_lan: true
+  allow_management_from_allowed_sources: true
+  drop_wan_input: true
+  drop_all_else_input: true
+  nat_masquerade: true
+
+hardening:
+  disable_mac_server_from_wan: true
+  disable_bandwidth_server: true
+  disable_neighbor_discovery_on_wan: true
+  restrict_services_by_address: true
+  create_automation_user: true
+  disable_default_admin: false
+  notes:
+    - "Desabilitar admin somente apos confirmar novo usuario."
+
+vpn:
+  configure_now: false
+
+ipsec:
+  configure_now: false
+
+observability:
+  add_comments: true
+  log_prefix: "AUTO-PROVISION"
+

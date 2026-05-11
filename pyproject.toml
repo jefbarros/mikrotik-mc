@@ -1,0 +1,10 @@
+[project]
+name = "mikrotik-ai-automation"
+version = "2.0.0"
+description = "Automacao read-only e provisionamento inicial controlado para MikroTik RouterOS."
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
